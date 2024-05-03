@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "196656160501",
+    "project_id": "d-9-app",
+    "storage_bucket": "d-9-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:196656160501:android:94490a0025dd6d3262afbc",
+        "android_client_info": {
+          "package_name": "com.example.d9"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCCYL1Wo6ZXH0xcrb3z-lki8MsetEARpiA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
