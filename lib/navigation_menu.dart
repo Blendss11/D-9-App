@@ -1,5 +1,6 @@
 
 
+import 'package:d9/features/personalization/screens/settings.dart';
 import 'package:d9/features/shop/screens/home/home.dart';
 import 'package:d9/features/shop/screens/store/store.dart';
 import 'package:flutter/material.dart';
@@ -39,5 +40,5 @@ class NavigationController extends GetxController{
   final Rx<int> selectedIndex = 0.obs;
 
 
-  final screen = [ const HomeScreen(), const Store(),Container(color: Colors.deepPurple,)];
+  final screen = [ const HomeScreen(), const Store(), const SettingsScreen()];
 }
