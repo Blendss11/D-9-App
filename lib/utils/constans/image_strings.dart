@@ -15,6 +15,10 @@ class Timage {
   static const String banner3 = "assets/img/Banner3.jpeg";
   static const String iconfood = "assets/image/iconfood.png";
 
+  static const String teh = "assets/image/teh.JPG";
+
+
+
 
   static const String OnboardImage1 =
       'assets/icon/sammy-woman-in-shopping-cart-placing-order-on-smartphone.gif';

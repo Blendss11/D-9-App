@@ -5,12 +5,14 @@ import 'package:d9/common/widgets/image/rounded_image.dart';
 import 'package:d9/common/widgets/textx/TprodukTitle.dart';
 import 'package:d9/common/widgets/textx/brand_title_text_verified_icon.dart';
 import 'package:d9/common/widgets/textx/produk_price.dart';
+import 'package:d9/features/shop/screens/product_details/detail.dart';
 import 'package:d9/utils/constans/colors.dart';
 import 'package:d9/utils/constans/image_strings.dart';
 import 'package:d9/utils/constans/size.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 
 class TprodukVerticalCard extends StatelessWidget {
@@ -19,7 +21,7 @@ class TprodukVerticalCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+      onTap: ()=> Get.to(()=> const ProductDetail()),
       child: Container(
         width: 180,
         padding: const EdgeInsets.all(1),
