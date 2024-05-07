@@ -31,12 +31,12 @@ class ProductAttributes extends StatelessWidget {
                       
 
                       Text(
-                        '\Rp 20000',
+                        '\Rp 25.000',
                         style: Theme.of(context).textTheme.titleSmall!.apply(decoration: TextDecoration.lineThrough),
                       ),
                       SizedBox(width: TSize.spaceBTWItems),
 
-                      ProductPriceText(price: '15000'),
+                      ProductPriceText(price:'20.000'),
                     ],
                   ),
                   Row(

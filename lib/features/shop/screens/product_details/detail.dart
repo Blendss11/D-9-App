@@ -7,6 +7,7 @@ import 'package:d9/features/shop/screens/product_details/bottom_add_to_cart.dart
 import 'package:d9/features/shop/screens/product_details/produk_attribute.dart';
 import 'package:d9/features/shop/screens/product_details/produk_image_slider.dart';
 import 'package:d9/features/shop/screens/product_details/produk_meta_data.dart';
+import 'package:d9/features/shop/screens/product_details/produk_review.dart';
 import 'package:d9/features/shop/screens/product_details/rating_and_share.dart';
 import 'package:d9/utils/constans/colors.dart';
 import 'package:d9/utils/constans/image_strings.dart';
@@ -40,6 +41,7 @@ class ProductDetail extends StatelessWidget {
                 TratingAndShare(),
 
                 TprodukMetaData(),
+                  SizedBox(height: TSize.spaceBTWItems),
 
                 ProductAttributes(),
                 SizedBox(height: TSize.spaceBTWSection),
@@ -53,8 +55,8 @@ class ProductDetail extends StatelessWidget {
                   'Ini minuman enak banget gak boong dijamin gak bisa berenti minum sampe kembung gak ada rasa kembung sama sekali asli dah',
                   trimLines: 2,
                   trimMode: TrimMode.Line,
-                  trimCollapsedText: 'Show More',
-                  trimExpandedText: 'Less',
+                  trimCollapsedText: ' Show More',
+                  trimExpandedText: ' Less',
                   moreStyle: TextStyle(fontSize: 14, fontWeight: FontWeight.w800),
                   lessStyle: TextStyle(fontSize: 14, fontWeight: FontWeight.w800),
                 ),
@@ -64,7 +66,7 @@ class ProductDetail extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     TsectionHedding(title: 'Reviews(200)', showActionButton: false),
-                    IconButton(onPressed: (){}, icon: Icon(Iconsax.arrow_right_3, size: 18))
+                    IconButton(onPressed: ()=> Get.to(()=> RatingReview()), icon: Icon(Iconsax.arrow_right_3, size: 18))
                   ],
                 ),
                 SizedBox(height: TSize.spaceBTWSection),
