@@ -22,6 +22,7 @@ class BottomAddToCart extends StatelessWidget {
         )
       ),
       child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Row(
             children: [
@@ -48,8 +49,8 @@ class BottomAddToCart extends StatelessWidget {
             onPressed: (){},
             style: ElevatedButton.styleFrom(
               padding: EdgeInsets.all(TSize.md),
-              backgroundColor: Tcolors.black,
-              side: BorderSide(color: Tcolors.black),
+              backgroundColor: Tcolors.primaryColor,
+              side: BorderSide(color: Tcolors.primaryColor),
             ), 
             child: Text('Add To Cart'),
             )
