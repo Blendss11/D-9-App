@@ -1,7 +1,13 @@
 class TValidator {
+  static String? validateEmptyText(String? fieldName, String? value) {
+    if (value == null || value.isEmpty) {
+      return '$fieldName harus di isi';
+    }
+  }
+
   static String? validateEmail(String? value) {
     if (value == null || value.isEmpty) {
-      return 'Email is Required.';
+      return 'Email harus di isi.';
     }
 
     final emailRegExp = RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$');
@@ -15,7 +21,7 @@ class TValidator {
 
   static String? validatePassword(String? value) {
     if (value == null || value.isEmpty) {
-      return 'Email is Required.';
+      return 'Password harus di isi.';
     }
 
     if (value.length < 6) {
@@ -35,7 +41,7 @@ class TValidator {
 
   static String? validatePhoneNumber(String? value) {
     if (value == null || value.isEmpty) {
-      return 'Phone Number is Required.';
+      return 'Nomor harus di isi.';
     }
     final phoneRegExp = RegExp(r'^\d{11}$');
 
