@@ -1,4 +1,7 @@
+import 'package:d9/features/shop/screens/all_product/all_product.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:http/http.dart';
 
 class TsectionHedding extends StatelessWidget {
   const TsectionHedding({
@@ -30,7 +33,7 @@ class TsectionHedding extends StatelessWidget {
           overflow: TextOverflow.ellipsis,
         ),
         if (showActionButton)
-          TextButton(onPressed: onPressed, child: Text(buttonTitle, style: TextStyle(color: Colors.black),))
+          TextButton(onPressed: () => Get.to(() => AllProduct()), child: Text(buttonTitle, style: TextStyle(color: Colors.black),))
       ],
     );
   }

@@ -14,6 +14,7 @@ import 'package:d9/common/widgets/producs.cart/home_category.dart';
 import 'package:d9/common/widgets/products_card/products_card_vertical.dart';
 // import 'package:d9/common/widgets/producs.cart/products_menu_cart.dart';
 import 'package:d9/common/widgets/textx/section_heading.dart';
+import 'package:d9/features/shop/screens/all_product/all_product.dart';
 import 'package:d9/features/shop/screens/home/widgets/home_appbar.dart';
 import 'package:d9/features/shop/screens/home/widgets/promo_slider.dart';
 import 'package:d9/utils/constans/colors.dart';
@@ -22,6 +23,7 @@ import 'package:d9/utils/constans/size.dart';
 // import 'package:d9/utils/constans/text_string.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 //import 'package:iconsax/iconsax.dart';
 
 class HomeScreen extends StatelessWidget {
