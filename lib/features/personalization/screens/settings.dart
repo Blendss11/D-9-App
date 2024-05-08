@@ -4,7 +4,9 @@ import 'package:d9/common/widgets/image/circular_image.dart';
 import 'package:d9/common/widgets/list_tiles/settings_menu_tile.dart';
 import 'package:d9/common/widgets/list_tiles/user_profile_tile.dart';
 import 'package:d9/common/widgets/textx/section_heading.dart';
-import 'package:d9/features/personalization/screens/profile.dart';
+import 'package:d9/features/personalization/screens/address/address.dart';
+import 'package:d9/features/personalization/screens/profile/profile.dart';
+import 'package:d9/features/shop/screens/order/order.dart';
 import 'package:d9/utils/constans/image_strings.dart';
 import 'package:d9/utils/constans/size.dart';
 import 'package:d9/utils/constans/colors.dart';
@@ -42,9 +44,19 @@ class SettingsScreen extends StatelessWidget {
                      TsectionHedding(title: 'Account Settings', showActionButton: false),
                     SizedBox(height: TSize.spaceBTWItems),
 
-                    SettingMenuTile(icon: Iconsax.safe_home, title: 'My Address', subTitle: 'Atur alamat untuk dikirimkan barang'),
+                    SettingMenuTile(
+                      icon: Iconsax.safe_home, 
+                      title: 'My Address', 
+                      subTitle: 'Atur alamat untuk dikirimkan barang', 
+                      onTap: () => Get.to(() => UserAddressScreen()),
+                      ),
                     SettingMenuTile(icon: Iconsax.shopping_cart, title: 'My Cart', subTitle: 'Atur alamat untuk dikirimkan barang'),
-                    SettingMenuTile(icon: Iconsax.bag_tick, title: 'My Orders', subTitle: 'Atur alamat untuk dikirimkan barang'),
+                    SettingMenuTile(
+                      icon: Iconsax.bag_tick, 
+                      title: 'My Orders', 
+                      subTitle: 'Atur alamat untuk dikirimkan barang',
+                      onTap: () => Get.to(() => OrderScreen()),
+                      ),
                     SettingMenuTile(icon: Iconsax.bank, title: 'Bank Account', subTitle: 'Atur alamat untuk dikirimkan barang'),
                     SettingMenuTile(icon: Iconsax.discount_shape, title: 'Coupons', subTitle: 'Atur alamat untuk dikirimkan barang'),
                     SettingMenuTile(icon: Iconsax.notification, title: 'Notifications', subTitle: 'Atur alamat untuk dikirimkan barang'),

@@ -41,7 +41,7 @@ class TprodukMetaData extends StatelessWidget {
 
           Row(
             children: [
-              TprodukTitle(title: 'Status'),
+              TprodukTitle(title: 'Status :'),
               const SizedBox(width: TSize.spaceBTWItems,),
                Text('In Stock', style: Theme.of(context).textTheme.titleMedium,),
             ],
