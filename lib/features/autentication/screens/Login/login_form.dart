@@ -1,5 +1,5 @@
-import 'package:d9/features/autentication/screens/Signup/signup.dart';
 import 'package:d9/features/autentication/screens/password/forgot_password.dart';
+import 'package:d9/features/personalization/screens/autentication/screens/Signup/signup.dart';
 import 'package:d9/navigation_menu.dart';
 import 'package:d9/utils/constans/size.dart';
 import 'package:d9/utils/constans/text_string.dart';
@@ -48,7 +48,7 @@ class LoginForm extends StatelessWidget {
                   ],
                 ),
                 TextButton(
-                    onPressed: () => Get.to(() => const ForgotPassword()) ,
+                    onPressed: () => Get.to(() => const ForgotPassword()),
                     child: const Text(
                       TTexts.ForgotPassword,
                       style: TextStyle(color: Colors.black),
@@ -62,7 +62,7 @@ class LoginForm extends StatelessWidget {
             SizedBox(
               width: double.infinity,
               child: ElevatedButton(
-                onPressed: () => Get.to(()=> const NavigationMenu()) ,
+                onPressed: () => Get.to(() => const NavigationMenu()),
                 child: const Text(TTexts.Signin),
               ),
             ),
@@ -73,7 +73,7 @@ class LoginForm extends StatelessWidget {
             SizedBox(
               width: double.infinity,
               child: OutlinedButton(
-                onPressed: () => Get.to(()=> const SignUpScreen()),
+                onPressed: () => Get.to(() => const SignUpScreen()),
                 child: const Text(TTexts.CreateAkun),
               ),
             ),

@@ -1,3 +1,4 @@
+import 'package:d9/bindings/general_bindings.dart';
 import 'package:d9/features/autentication/screens/splash/splash.dart';
 import 'package:flutter/material.dart';
 
@@ -10,6 +11,7 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
+      initialBinding: GeneralBindings(),
       debugShowCheckedModeBanner: false,
       themeMode: ThemeMode.system,
       theme: ThemeApp.lightTheme,

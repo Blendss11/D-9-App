@@ -3,6 +3,8 @@ class TValidator {
     if (value == null || value.isEmpty) {
       return '$fieldName harus di isi';
     }
+
+    return null;
   }
 
   static String? validateEmail(String? value) {

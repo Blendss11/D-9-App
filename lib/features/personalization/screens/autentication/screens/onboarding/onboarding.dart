@@ -1,7 +1,7 @@
-import 'package:d9/features/autentication/screens/onboarding/widget/onboarding_page.dart';
 import 'package:d9/features/personalization/screens/autentication/controllers/onboarding/onboarding_controller.dart';
-import 'package:d9/features/personalization/screens/autentication/screens/onboarding/widget/onboard_navigation.dart';
-import 'package:d9/features/personalization/screens/autentication/screens/onboarding/widget/onboard_next.dart';
+import 'package:d9/features/autentication/screens/onboarding/widget/onboard_navigation.dart';
+import 'package:d9/features/autentication/screens/onboarding/widget/onboard_next.dart';
+import 'package:d9/features/autentication/screens/onboarding/widget/onboarding_page.dart';
 import 'package:d9/features/personalization/screens/autentication/screens/onboarding/widget/onboarding_skip.dart';
 import 'package:d9/utils/constans/colors.dart';
 import 'package:d9/utils/constans/enums.dart';
