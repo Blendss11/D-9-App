@@ -35,7 +35,7 @@ class TValidator {
     }
 
     if (!value.contains(RegExp(r'[0-9]'))) {
-      return 'Harus memiliki 1 number besar.';
+      return 'Harus memiliki sebuah angka';
     }
 
     return null;

@@ -24,6 +24,7 @@ class UserModel {
 
   String get fullName => '$firstName' '$lastName';
   String get formattedPhoneNumber => Tformatter.formatPhoneNumber(phoneNumber);
+  
   static List<String> nameParts(fullName) => fullName.split(" ");
   static String generateUsername(fullName) {
     List<String> nameParts = fullName.split(" ");
@@ -61,13 +62,14 @@ class UserModel {
       final data = document.data()!;
       return UserModel(
           id: document.id,
-          firstName: data['firstName'] ?? '',
-          lastName: data['lastName'] ?? '',
-          username: data['userName'] ?? '',
-          email: data['email'] ?? '',
-          phoneNumber: data['phoneNumber'] ?? '',
-          profilePicture: data['profilePicture'] ?? '');
-    } else {
+          firstName: data['firstName'],
+          lastName: data['lastName'],
+          username: data['username'] ,
+          email: data['email'],
+          phoneNumber: data['phoneNumber'],
+          profilePicture: data['profilePicture']);
+    } 
+    else {
       return empty();
     }
   }
