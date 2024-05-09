@@ -60,9 +60,9 @@ class SignUpController extends GetxController {
       await userRepository.saveUserRecord(newUser);
 
       Loaders.successSnackbar(
-          title: 'Selamat datang $userName',
+          title: 'Selamat datang',
           message: 'Akun anda telah dibuat!, selanjutnya verifikasi email');
-      Get.to(() => VerifyEmailScreen());
+      Get.to(() => VerifyEmailScreen(email: email.text.trim(),));
 
     } catch (e) {
       Loaders.errorSnackBar(title: 'Oh Snap!', message: e.toString());

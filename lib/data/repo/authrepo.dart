@@ -1,5 +1,9 @@
+import 'package:d9/features/autentication/screens/verify%20email/verify_email.dart';
 import 'package:d9/features/personalization/screens/autentication/screens/Login/login.dart';
 import 'package:d9/features/personalization/screens/autentication/screens/onboarding/onboarding.dart';
+import 'package:d9/navigation_menu.dart';
+import 'package:d9/utils/exceptions/firebase_auth_exceptions.dart';
+import 'package:d9/utils/exceptions/firebase_exceptions.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
@@ -21,11 +25,22 @@ class AuthentificationRepository extends GetxController {
   }
 
   screenRedirect() async {
-    //local storage
-    deviceStorage.writeIfNull('isFirstTime', true);
-    deviceStorage.read('isFirstTime') != true
-        ? Get.offAll(() => const LoginScreen())
-        : Get.offAll(() => const OnboardingScreen());
+    final user = _auth.currentUser;
+    if (user != null) {
+      if (user.emailVerified) {
+        Get.offAll(() => const NavigationMenu());
+      } else {
+        Get.offAll(() => const NavigationMenu());
+      }
+    } else {
+      //local storage
+      deviceStorage.writeIfNull('isFirstTime', true);
+      deviceStorage.read('isFirstTime') != true
+          ? Get.offAll(() => const LoginScreen())
+          : Get.offAll(() => VerifyEmailScreen(
+                email: _auth.currentUser?.email,
+              ));
+    }
   }
 
   //register email auth
@@ -34,14 +49,47 @@ class AuthentificationRepository extends GetxController {
     try {
       return await _auth.createUserWithEmailAndPassword(
           email: email, password: password);
-    // } on FirebaseAuthException catch (e) {
-    //   throw TFirebaseAuthException(e.code).message;
-    // } on FirebaseException catch (e) {
-    //   throw TFirebaseException(e.code).message;
-    // } on FormatException catch (e) {
-    //   throw TFormatException(e.code).message;
-    // } on PlatformException catch (e) {
-    //   throw TPlatformException(e.code).message;
+    } on FirebaseAuthException catch (e) {
+      throw TFirebaseAuthException(e.code).message;
+    } on FirebaseException catch (e) {
+      throw TFirebaseException(e.code).message;
+      // } on FormatException catch (e) {
+      //   throw TFormatException(e.code).message;
+      // } on PlatformException catch (e) {
+      //   throw TPlatformException(e.code).message;
+    } catch (e) {
+      throw 'Something Went Wrong';
+    }
+  }
+
+  //verify email
+  Future<void> sendEmailVerification() async {
+    try {
+      return await _auth.currentUser?.sendEmailVerification();
+    } on FirebaseAuthException catch (e) {
+      throw TFirebaseAuthException(e.code).message;
+    } on FirebaseException catch (e) {
+      throw TFirebaseException(e.code).message;
+      // } on FormatException catch (e) {
+      //   throw TFormatException(e.code).message;
+      // } on PlatformException catch (e) {
+      //   throw TPlatformException(e.code).message;
+    } catch (e) {
+      throw 'Something Went Wrong';
+    }
+  }
+
+  Future<void> logout() async {
+    try {
+      return await FirebaseAuth.instance.signOut();
+    } on FirebaseAuthException catch (e) {
+      throw TFirebaseAuthException(e.code).message;
+    } on FirebaseException catch (e) {
+      throw TFirebaseException(e.code).message;
+      // } on FormatException catch (e) {
+      //   throw TFormatException(e.code).message;
+      // } on PlatformException catch (e) {
+      //   throw TPlatformException(e.code).message;
     } catch (e) {
       throw 'Something Went Wrong';
     }

@@ -16,7 +16,7 @@ class Timage {
   static const String iconfood = "assets/image/iconfood.png";
 
   static const String teh = "assets/image/teh.JPG";
-
+  //static String successRegisterAnimation = 
 
 
 
