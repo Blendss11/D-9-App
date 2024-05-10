@@ -13,6 +13,8 @@ class TFirebaseAuthException implements Exception {
         return 'Password anda terlalu mudah. Silahkan buat password yang rumit';
       case 'user-disabled':
         return 'Akun ini tidak bisa digunakan. Silahkan hubungi customer service';
+      case 'user-deleted':
+        return 'Akun ini telah dihapus. Silahkan buat akun baru';
       case 'user-not-found':
         return 'Akun tidak ditemukan';
       case 'wrong-password':

@@ -30,7 +30,7 @@ class AuthentificationRepository extends GetxController {
       if (user.emailVerified) {
         Get.offAll(() => const NavigationMenu());
       } else {
-        Get.offAll(() => const NavigationMenu());
+        Get.offAll(() =>  VerifyEmailScreen(email: _auth.currentUser?.email,));
       }
     } else {
       //local storage

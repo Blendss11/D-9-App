@@ -16,12 +16,12 @@ class LoginController extends GetxController {
   final rememberMe = true.obs;
   final hidePassword = true.obs;
 
-  @override
-  void onInit() {
-    email.text = localStorage.read('REMEMBER_ME_EMAIL');
-    password.text = localStorage.read('REMEMBER_ME_PASSWORD');
-    super.onInit();
-  }
+ // @override
+  // void onInit() {
+  //   email.text = localStorage.read('REMEMBER_ME_EMAIL');
+  //   password.text = localStorage.read('REMEMBER_ME_PASSWORD');
+  //   super.onInit();
+  // }
 
   Future<void> emailAndPasswordSignIn() async {
     try {

@@ -30,10 +30,16 @@ class SignUpController extends GetxController {
 
       //chech network
       final isConnected = await NetworkManager.instance.isConnected();
-      if (!isConnected) return;
+      if (!isConnected) {
+        TFullScreenLoader.stopLoading();
+        return;
+      }
 
       //form validation
-      if (!signUpFormKey.currentState!.validate()) return;
+      if (!signUpFormKey.currentState!.validate()) {
+        TFullScreenLoader.stopLoading();
+        return;
+      }
 
       //privacy policy check
       if (!privacyPolicy.value) {
@@ -47,6 +53,7 @@ class SignUpController extends GetxController {
       final UserCredential = await AuthentificationRepository.instance
           .registerWithEmailAndPassword(
               email.text.trim(), password.text.trim());
+              
       final newUser = UserModel(
           id: UserCredential.user!.uid,
           firstName: firstName.text.trim(),
@@ -59,15 +66,19 @@ class SignUpController extends GetxController {
       final userRepository = Get.put(UserRepository());
       await userRepository.saveUserRecord(newUser);
 
+      TFullScreenLoader.stopLoading();
+
       Loaders.successSnackbar(
           title: 'Selamat datang',
           message: 'Akun anda telah dibuat!, selanjutnya verifikasi email');
-      Get.to(() => VerifyEmailScreen(email: email.text.trim(),));
 
+
+      Get.to(() => VerifyEmailScreen(
+            email: email.text.trim(),
+          ));
     } catch (e) {
       Loaders.errorSnackBar(title: 'Gagal!', message: e.toString());
-    } 
-    finally {
+    } finally {
       TFullScreenLoader.stopLoading();
     }
   }

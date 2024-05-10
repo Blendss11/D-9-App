@@ -77,7 +77,7 @@ class VerifyEmailScreen extends StatelessWidget {
               SizedBox(
                 width: double.infinity,
                 child: TextButton(
-                    onPressed: () {}, child: const Text(TTexts.ResendEmail)),
+                    onPressed: () => sendEmailVerification, child: const Text(TTexts.ResendEmail)),
               )
             ],
           ),
