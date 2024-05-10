@@ -30,7 +30,9 @@ class AuthentificationRepository extends GetxController {
       if (user.emailVerified) {
         Get.offAll(() => const NavigationMenu());
       } else {
-        Get.offAll(() =>  VerifyEmailScreen(email: _auth.currentUser?.email,));
+        Get.offAll(() => VerifyEmailScreen(
+              email: _auth.currentUser?.email,
+            ));
       }
     } else {
       //local storage
@@ -66,6 +68,23 @@ class AuthentificationRepository extends GetxController {
   Future<void> sendEmailVerification() async {
     try {
       return await _auth.currentUser?.sendEmailVerification();
+    } on FirebaseAuthException catch (e) {
+      throw TFirebaseAuthException(e.code).message;
+    } on FirebaseException catch (e) {
+      throw TFirebaseException(e.code).message;
+      // } on FormatException catch (e) {
+      //   throw TFormatException(e.code).message;
+      // } on PlatformException catch (e) {
+      //   throw TPlatformException(e.code).message;
+    } catch (e) {
+      throw 'Something Went Wrong';
+    }
+  }
+
+  //forgot password
+  Future<void> sendForgotPasswordEmail(String email) async {
+    try {
+      await _auth.sendPasswordResetEmail(email: email);
     } on FirebaseAuthException catch (e) {
       throw TFirebaseAuthException(e.code).message;
     } on FirebaseException catch (e) {

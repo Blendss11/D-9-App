@@ -53,7 +53,7 @@ class SignUpController extends GetxController {
       final UserCredential = await AuthentificationRepository.instance
           .registerWithEmailAndPassword(
               email.text.trim(), password.text.trim());
-              
+
       final newUser = UserModel(
           id: UserCredential.user!.uid,
           firstName: firstName.text.trim(),
@@ -77,9 +77,8 @@ class SignUpController extends GetxController {
             email: email.text.trim(),
           ));
     } catch (e) {
-      Loaders.errorSnackBar(title: 'Gagal!', message: e.toString());
-    } finally {
       TFullScreenLoader.stopLoading();
-    }
+      Loaders.errorSnackBar(title: 'Gagal!', message: e.toString());
+    } 
   }
 }

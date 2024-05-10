@@ -73,7 +73,7 @@ class LoginForm extends StatelessWidget {
                   ],
                 ),
                 TextButton(
-                    onPressed: () => controller.emailAndPasswordSignIn(),
+                    onPressed: () => Get.to(() => const ForgotPassword()),
                     child: const Text(
                       TTexts.ForgotPassword,
                       style: TextStyle(color: Colors.black),
