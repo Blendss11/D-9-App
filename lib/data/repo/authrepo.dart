@@ -16,11 +16,15 @@ class AuthentificationRepository extends GetxController {
   final deviceStorage = GetStorage();
   final _auth = FirebaseAuth.instance;
 
+  User? get authUser => _auth.currentUser;
+
   @override
   void onReady() {
-    // TODO: implement onReady
+    
     FlutterNativeSplash.remove();
+
     screenRedirect();
+
     super.onReady();
   }
 

@@ -62,12 +62,13 @@ class UserModel {
       final data = document.data()!;
       return UserModel(
           id: document.id,
-          firstName: data['firstName'],
-          lastName: data['lastName'],
-          username: data['username'] ,
+          firstName: data['firstName'] ?? '',
+          lastName: data['lastName'] ?? '',
+          username: data['username'] ?? '',
           email: data['email'],
-          phoneNumber: data['phoneNumber'],
-          profilePicture: data['profilePicture']);
+          phoneNumber: data['phoneNumber'] ?? '',
+          profilePicture: data['profilePicture'] ?? ''
+          );
     } 
     else {
       return empty();
