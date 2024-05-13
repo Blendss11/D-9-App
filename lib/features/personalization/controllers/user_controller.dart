@@ -19,6 +19,7 @@ class UserController extends GetxController {
     super.onInit();
     fetchUserRecord();
   }
+  
 
   Future<void> fetchUserRecord() async {
     try {
