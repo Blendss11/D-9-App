@@ -72,23 +72,12 @@ class SignUpController extends GetxController {
           title: 'Selamat datang',
           message: 'Akun anda telah dibuat!, selanjutnya verifikasi email');
 
-
       Get.to(() => VerifyEmailScreen(
             email: email.text.trim(),
           ));
-
     } catch (e) {
-<<<<<<< HEAD
       TFullScreenLoader.stopLoading();
       Loaders.errorSnackBar(title: 'Gagal!', message: e.toString());
-    } 
-=======
-      Loaders.errorSnackBar(title: 'Gagal!', message: e.toString());
-      
-       TFullScreenLoader.stopLoading();
-    }  
-      
-    
->>>>>>> f86c131 (lanjut exception)
+    }
   }
 }

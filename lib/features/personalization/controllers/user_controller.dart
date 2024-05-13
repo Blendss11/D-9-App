@@ -18,7 +18,7 @@ void onInit(){
 
 Future<void> fetchUserRecord() async {
   try{
-    final user = await userRepository.fetchUserDetails();
+    final user = await userRepository.fetchUserDetail();
     this.user(user);
   } catch(e) {
      user(UserModel.empty());
