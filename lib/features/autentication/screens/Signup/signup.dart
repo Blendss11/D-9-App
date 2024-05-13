@@ -1,12 +1,10 @@
 import 'package:d9/features/autentication/screens/Login/Social_login.dart';
 import 'package:d9/features/autentication/screens/Login/divider.dart';
 import 'package:d9/features/autentication/screens/Signup/sign_up_form.dart';
-import 'package:d9/utils/constans/colors.dart';
 import 'package:d9/utils/constans/size.dart';
 import 'package:d9/utils/constans/text_string.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:iconsax/iconsax.dart';
 
 class SignUpScreen extends StatelessWidget {
   const SignUpScreen({Key? key});

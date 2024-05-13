@@ -1,19 +1,11 @@
-import 'dart:ui';
-
 import 'package:d9/common/widgets/appbar/appbar.dart';
-import 'package:d9/common/widgets/brands/brands_card.dart';
-import 'package:d9/common/widgets/custom_shapes/containers/rounded_container.dart';
 import 'package:d9/common/widgets/custom_shapes/containers/search_container.dart';
 import 'package:d9/common/widgets/gridlayout/grid_layout.dart';
-import 'package:d9/common/widgets/image/circular_image.dart';
 import 'package:d9/common/widgets/producs.cart/products_menu_cart.dart';
 import 'package:d9/common/widgets/products_card/brand_card.dart';
-import 'package:d9/common/widgets/textx/brand_title_text_verified_icon.dart';
 import 'package:d9/common/widgets/textx/section_heading.dart';
 import 'package:d9/features/shop/screens/home/widgets/tab_category.dart';
 import 'package:d9/utils/constans/colors.dart';
-import 'package:d9/utils/constans/enums.dart';
-import 'package:d9/utils/constans/image_strings.dart';
 import 'package:d9/utils/constans/size.dart';
 import 'package:d9/utils/helpers/helper_function.dart';
 import 'package:flutter/cupertino.dart';

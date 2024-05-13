@@ -2,11 +2,9 @@ import 'package:d9/common/widgets/custom_shapes/containers/rounded_container.dar
 import 'package:d9/common/widgets/textx/TprodukTitle.dart';
 import 'package:d9/common/widgets/textx/brand_title_text_verified_icon.dart';
 import 'package:d9/common/widgets/textx/produk_price.dart';
-import 'package:d9/utils/constans/colors.dart';
 import 'package:d9/utils/constans/enums.dart';
 import 'package:d9/utils/constans/size.dart';
 import 'package:d9/utils/helpers/helper_function.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
@@ -15,7 +13,7 @@ class TprodukMetaData extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final darkmode = THelperFunction.isDarkMode(context);
+    THelperFunction.isDarkMode(context);
     return  Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [

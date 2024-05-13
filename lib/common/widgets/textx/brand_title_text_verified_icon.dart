@@ -1,5 +1,4 @@
 import 'package:d9/common/widgets/textx/brand_title.dart';
-import 'package:d9/utils/constans/colors.dart';
 import 'package:d9/utils/constans/enums.dart';
 import 'package:d9/utils/constans/size.dart';
 import 'package:flutter/material.dart';

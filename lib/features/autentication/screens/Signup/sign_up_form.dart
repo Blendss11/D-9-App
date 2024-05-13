@@ -1,11 +1,9 @@
 import 'package:d9/features/autentication/controllers/signup/signup_controller.dart';
-import 'package:d9/features/autentication/screens/verify%20email/verify_email.dart';
 import 'package:d9/utils/constans/colors.dart';
 import 'package:d9/utils/constans/size.dart';
 import 'package:d9/utils/constans/text_string.dart';
 import 'package:d9/utils/validators/validator.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 
 class TSignUpForm extends StatelessWidget {

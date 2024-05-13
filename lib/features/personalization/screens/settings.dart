@@ -1,13 +1,11 @@
 import 'package:d9/common/widgets/appbar/appbar.dart';
 import 'package:d9/common/widgets/custom_shapes/containers/primary_header.dart';
-import 'package:d9/common/widgets/image/circular_image.dart';
 import 'package:d9/common/widgets/list_tiles/settings_menu_tile.dart';
 import 'package:d9/common/widgets/list_tiles/user_profile_tile.dart';
 import 'package:d9/common/widgets/textx/section_heading.dart';
 import 'package:d9/features/personalization/screens/address/address.dart';
 import 'package:d9/features/personalization/screens/profile/profile.dart';
 import 'package:d9/features/shop/screens/order/order.dart';
-import 'package:d9/utils/constans/image_strings.dart';
 import 'package:d9/utils/constans/size.dart';
 import 'package:d9/utils/constans/colors.dart';
 import 'package:flutter/material.dart';
