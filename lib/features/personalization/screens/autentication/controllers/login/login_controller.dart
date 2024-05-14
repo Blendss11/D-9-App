@@ -1,13 +1,18 @@
 import 'package:d9/data/repo/authrepo.dart';
+import 'package:d9/features/personalization/controllers/user_controller.dart';
 import 'package:d9/utils/constans/image_strings.dart';
 import 'package:d9/utils/helpers/network_manager.dart';
 import 'package:d9/utils/poppups/loaders/full_screen_loader.dart';
 import 'package:d9/utils/poppups/loaders/loaders.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
+import 'package:http/http.dart';
 
 class LoginController extends GetxController {
+  
+
   ///var
   final email = TextEditingController();
   final password = TextEditingController();
@@ -15,6 +20,7 @@ class LoginController extends GetxController {
   final localStorage = GetStorage();
   final rememberMe = true.obs;
   final hidePassword = true.obs;
+  final userController = Get.put(UserController());
 
  // @override
   // void onInit() {
@@ -55,6 +61,31 @@ class LoginController extends GetxController {
     } catch (e) {
       TFullScreenLoader.stopLoading();
       Loaders.errorSnackBar(title: 'Gagal', message: e.toString());
+    }
+  }
+
+  Future<void> googleSignIn() async{
+    try{
+      TFullScreenLoader.openLoadingDialog('Logging', Timage.OnboardImage1);
+
+       final isConnected = await NetworkManager.instance.isConnected();
+      if (!isConnected) {
+        TFullScreenLoader.stopLoading();
+        return;
+      }
+
+      final userCredential = await AuthentificationRepository.instance.signInGoole();
+
+      await userController.saveUserRecord(userCredential);
+
+
+      TFullScreenLoader.stopLoading();
+
+      AuthentificationRepository.instance.screenRedirect();
+
+    } catch(e){
+       TFullScreenLoader.stopLoading();
+      Loaders.errorSnackBar(title: 'Oh Snap', message: e.toString());
     }
   }
 }
