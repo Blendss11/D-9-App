@@ -23,8 +23,8 @@ class TuserProfile extends StatelessWidget {
         height: 50,
         padding: 0,
       ),
-      title: Text('Ambatron', style: Theme.of(context).textTheme.headlineSmall!.apply(color: Tcolors.white)),
-      subtitle: Text('ambatron@gmail.com', style: Theme.of(context).textTheme.bodyLarge!.apply(color: Tcolors.white)),
+      title: Text(controller.user.value.fullName, style: Theme.of(context).textTheme.headlineSmall!.apply(color: Tcolors.white)),
+      subtitle: Text(controller.user.value.email, style: Theme.of(context).textTheme.bodyLarge!.apply(color: Tcolors.white)),
       trailing: IconButton(onPressed: onPressed, icon: const Icon(Iconsax.edit, color:Tcolors.white))
     );
   }

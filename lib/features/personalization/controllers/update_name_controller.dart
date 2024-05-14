@@ -61,8 +61,6 @@ Future<void> updateUserName() async {
     Get.off(() => const ProfileScreen());
 
     
-
-
   } catch (e) {
     TFullScreenLoader.stopLoading();
     Loaders.errorSnackBar(title: 'Oh Snap!', message: e.toString());
