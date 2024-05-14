@@ -1,29 +1,32 @@
-class FormatException implements Exception {
+class TFormatException implements Exception {
     final String message;
 
-    const FormatException([this.message = 'An unexpected format error occured. Please check your input.']);
+    const TFormatException([this.message = 'An unexpected format error occured. Please check your input.']);
 
-    factory FormatException.fromMessage(String message) {
-        return FormatException(message);
+    factory TFormatException.fromMessage(String message) {
+        return TFormatException(message);
     }
 
     String get formattedMessage => message;
 
-    factory FormatException.fromCode(String code){
+    factory TFormatException.fromCode(String code){
         switch (code) {
             case 'invalid-email-format':
-                return FormatException('Alamat email tidak valid, silahkan masukkan email yang valid.');
+                return TFormatException('Alamat email tidak valid, silahkan masukkan email yang valid.');
             case 'invalid-phone-number-format':
-                return FormatException('Nomor HP anda tidak valid, silahkan masukkan nomor HP yang valid.');
+                return TFormatException('Nomor HP anda tidak valid, silahkan masukkan nomor HP yang valid.');
             case 'invalid-date-format':
-                return FormatException('Tanggal tidak valid, silahkan masukkan tanggal yang valid.');
+                return TFormatException('Tanggal tidak valid, silahkan masukkan tanggal yang valid.');
             case 'invalid-url-format':
-                return FormatException('URL yang anda masukkan tidak valid, silahkan masukkan URL yang valid.');
+                return TFormatException('URL yang anda masukkan tidak valid, silahkan masukkan URL yang valid.');
             case 'invalid-credit-card-format':
-                return FormatException('Credit card email tidak valid, silahkan masukkan credit card yang valid.');
+                return TFormatException('Credit card email tidak valid, silahkan masukkan credit card yang valid.');
             case 'invalid-numeric-format':
-                return FormatException('Harus masukkan numeric yang valid.');
+                return TFormatException('Harus masukkan numeric yang valid.');
+              default: 
+              throw ArgumentError('Kode format tidak valid');
         }
     }
+    
     
 }

@@ -1,9 +1,11 @@
-import 'dart:html';
+
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:d9/data/repo/authrepo.dart';
 import 'package:d9/features/personalization/screens/autentication/model/signup/signup_model.dart';
 import 'package:d9/utils/exceptions/firebase_exceptions.dart';
+import 'package:d9/utils/exceptions/format_exception.dart';
+import 'package:d9/utils/exceptions/platfrom_exception.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 
@@ -18,9 +20,9 @@ class UserRepository extends GetxController {
     } on FirebaseException catch (e) {
       throw TFirebaseException(e.code).message; 
     } on FormatException catch (_) {
-      throw const FormatException();
+      throw const TFormatException();
     } on PlatformException catch (e) {
-     throw PlatformException(e.code).message; 
+     throw TPlatformException(e.code).message; 
     } catch (e) {
       throw "Something went wrong. Please try again";
     }
@@ -37,9 +39,9 @@ class UserRepository extends GetxController {
     } on FirebaseException catch (e){
       throw TFirebaseException(e.code).message;
     } on FormatException catch (_) {
-      throw const FormatException();
+      throw const TFormatException();
     } on PlatformException catch (e) {
-     throw PlatformException(e.code).message; 
+     throw TPlatformException(e.code).message; 
     } catch (e) {
       throw "Something went wrong. Please try again";
     }
@@ -51,9 +53,9 @@ class UserRepository extends GetxController {
     } on FirebaseException catch (e) {
       throw TFirebaseException(e.code).message; 
     } on FormatException catch (_) {
-      throw const FormatException();
+      throw const TFormatException();
     } on PlatformException catch (e) {
-     throw PlatformException(e.code).message; 
+     throw TPlatformException(e.code).message; 
     } catch (e) {
       throw "Something went wrong. Please try again";
     }
@@ -65,9 +67,9 @@ Future<void> updateSingleField(Map<String, dynamic> json) async {
     } on FirebaseException catch (e) {
       throw TFirebaseException(e.code).message; 
     } on FormatException catch (_) {
-      throw const FormatException();
+      throw const TFormatException();
     } on PlatformException catch (e) {
-     throw PlatformException(e.code).message; 
+     throw TPlatformException(e.code).message; 
     } catch (e) {
       throw "Something went wrong. Please try again";
     }
@@ -79,9 +81,9 @@ Future<void> updateSingleField(Map<String, dynamic> json) async {
     } on FirebaseException catch (e) {
       throw TFirebaseException(e.code).message; 
     } on FormatException catch (_) {
-      throw const FormatException();
+      throw const TFormatException();
     } on PlatformException catch (e) {
-     throw PlatformException(e.code).message; 
+     throw TPlatformException(e.code).message; 
     } catch (e) {
       throw "Something went wrong. Please try again";
     }
