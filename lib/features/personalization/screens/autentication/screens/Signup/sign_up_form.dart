@@ -1,13 +1,20 @@
+<<<<<<< HEAD:lib/features/autentication/screens/Signup/sign_up_form.dart
+import 'package:d9/features/autentication/controllers/signup/signup_controller.dart';
+=======
 import 'package:d9/features/personalization/screens/autentication/controllers/signup/signup_controller.dart';
 import 'package:d9/features/personalization/screens/autentication/screens/Signup/terms_and_conditon.dart';
 //import 'package:d9/features/personalization/screens/autentication/screens/verify%20email/verify_email.dart';
+>>>>>>> 289217778cfce47134fe8d8aa0e3cb9b71b3dc90:lib/features/personalization/screens/autentication/screens/Signup/sign_up_form.dart
 import 'package:d9/utils/constans/colors.dart';
 import 'package:d9/utils/constans/size.dart';
 import 'package:d9/utils/constans/text_string.dart';
 import 'package:d9/utils/validators/validator.dart';
 import 'package:flutter/material.dart';
+<<<<<<< HEAD:lib/features/autentication/screens/Signup/sign_up_form.dart
+=======
 import 'package:get/get.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
+>>>>>>> 289217778cfce47134fe8d8aa0e3cb9b71b3dc90:lib/features/personalization/screens/autentication/screens/Signup/sign_up_form.dart
 import 'package:iconsax/iconsax.dart';
 
 class TSignUpForm extends StatelessWidget {

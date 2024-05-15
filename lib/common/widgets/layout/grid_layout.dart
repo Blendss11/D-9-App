@@ -1,4 +1,3 @@
-import 'package:d9/common/widgets/products_card/products_card_vertical.dart';
 import 'package:d9/utils/constans/size.dart';
 import 'package:flutter/material.dart';
 

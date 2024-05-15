@@ -1,8 +1,6 @@
 import 'dart:convert';
-import 'dart:html';
 import 'package:http/http.dart' as http;
 
-import 'package:get/get.dart';
 
 class THttpHelper {
   static const String _baseUrl = 'https://pro.rajaongkir.com/api/cost';

@@ -1,8 +1,5 @@
-import 'package:d9/utils/constans/colors.dart';
 import 'package:d9/utils/constans/enums.dart';
-import 'package:d9/utils/constans/size.dart';
 import 'package:flutter/material.dart';
-import 'package:iconsax/iconsax.dart';
 
 class TbrandsTitletext extends StatelessWidget {
   const TbrandsTitletext({

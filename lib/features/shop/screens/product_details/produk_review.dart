@@ -1,14 +1,9 @@
 import 'package:d9/common/widgets/appbar/appbar.dart';
 import 'package:d9/common/widgets/products_card/rating/rating_bar.dart';
 import 'package:d9/features/shop/screens/product_details/widget/overall_progress_rating.dart';
-import 'package:d9/features/shop/screens/product_details/widget/progress_rating.dart';
-import 'package:d9/utils/constans/colors.dart';
 import 'package:d9/utils/constans/size.dart';
-import 'package:d9/utils/device/device_utility.dart';
-import 'package:d9/utils/theme/theme.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-import 'package:iconsax/iconsax.dart';
+
 
 class RatingReview extends StatelessWidget {
   const RatingReview({super.key});

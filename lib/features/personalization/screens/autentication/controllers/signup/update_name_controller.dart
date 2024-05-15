@@ -1,5 +1,5 @@
 import 'package:d9/data/repo/userrepo.dart';
-import 'package:d9/features/personalization/controllers/user_controller.dart';
+import 'package:d9/features/personalization/screens/autentication/controllers/signup/user_controller.dart';
 import 'package:d9/features/personalization/screens/profile/profile.dart';
 import 'package:d9/utils/constans/image_strings.dart';
 import 'package:d9/utils/helpers/network_manager.dart';

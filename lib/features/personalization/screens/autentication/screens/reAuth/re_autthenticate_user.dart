@@ -1,4 +1,4 @@
-import 'package:d9/features/personalization/controllers/user_controller.dart';
+import 'package:d9/features/personalization/screens/autentication/controllers/signup/user_controller.dart';
 import 'package:d9/utils/constans/size.dart';
 import 'package:d9/utils/constans/text_string.dart';
 import 'package:d9/utils/validators/validator.dart';

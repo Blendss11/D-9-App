@@ -1,7 +1,3 @@
-import 'package:d9/common/widgets/appbar/appbar.dart';
-import 'package:d9/common/widgets/curvededge/curved_edge_widget.dart';
-import 'package:d9/common/widgets/icons/circular_icon.dart';
-import 'package:d9/common/widgets/image/rounded_image.dart';
 import 'package:d9/common/widgets/textx/section_heading.dart';
 import 'package:d9/features/shop/screens/product_details/bottom_add_to_cart.dart';
 import 'package:d9/features/shop/screens/product_details/produk_attribute.dart';
@@ -9,11 +5,7 @@ import 'package:d9/features/shop/screens/product_details/produk_image_slider.dar
 import 'package:d9/features/shop/screens/product_details/produk_meta_data.dart';
 import 'package:d9/features/shop/screens/product_details/produk_review.dart';
 import 'package:d9/features/shop/screens/product_details/rating_and_share.dart';
-import 'package:d9/utils/constans/colors.dart';
-import 'package:d9/utils/constans/image_strings.dart';
 import 'package:d9/utils/constans/size.dart';
-// Ubah dari 'constans' ke 'constants'
-// Ubah dari 'constans' ke 'constants'
 import 'package:d9/utils/helpers/helper_function.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';

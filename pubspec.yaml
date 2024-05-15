@@ -51,6 +51,13 @@ dependencies:
 
   
   firebase_core: ^2.24.2
+<<<<<<< HEAD
+  readmore: ^3.0.0
+  flutter_native_splash: ^2.4.0
+  connectivity_plus: ^6.0.3
+  flutter_rating_bar: ^4.0.1
+  lottie: ^3.1.0
+=======
   flutter_native_splash: ^2.4.0
   readmore: ^3.0.0
   flutter_rating_bar: ^4.0.1
@@ -58,12 +65,16 @@ dependencies:
   lottie: ^2.7.0
   firebase_auth: ^4.19.5
   cloud_firestore: ^4.17.3
+<<<<<<< HEAD
   shimmer_pro: ^0.0.6
   shimmer: ^3.0.0
   google_sign_in: ^6.2.1
   image_picker: ^1.1.1
   firebase_storage: ^11.7.5
   cached_network_image: ^3.3.1
+=======
+>>>>>>> 289217778cfce47134fe8d8aa0e3cb9b71b3dc90
+>>>>>>> refs/remotes/origin/master
   
 
 dev_dependencies:
