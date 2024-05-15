@@ -12,6 +12,7 @@ import 'package:iconsax/iconsax.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
+  
 
   @override
   Widget build(BuildContext context) {
@@ -84,7 +85,7 @@ class ProfileScreen extends StatelessWidget {
               ),
 
               Center(
-                child: TextButton(onPressed: (){}, child: const Text('Close Account', style: TextStyle(color: Colors.red),)),
+                child: TextButton(onPressed:()=> controller.deleteAccountWarningPopup(), child: const Text('Close Account', style: TextStyle(color: Colors.red),)),
               )
 
             ],
