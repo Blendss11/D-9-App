@@ -18,9 +18,9 @@ class UserRepository extends GetxController {
     } on FirebaseException catch (e) {
       throw TFirebaseException(e.code).message; 
     } on FormatException catch (_) {
-      throw const TFormatException();
+      throw const FormatException();
     } on PlatformException catch (e) {
-     throw TPlatformException(e.code).message; 
+     throw PlatformException(e.code).message; 
     } catch (e) {
       throw "Something went wrong. Please try again";
     }
@@ -37,9 +37,9 @@ class UserRepository extends GetxController {
     } on FirebaseException catch (e){
       throw TFirebaseException(e.code).message;
     } on FormatException catch (_) {
-      throw const TFormatException();
+      throw const FormatException();
     } on PlatformException catch (e) {
-     throw TPlatformException(e.code).message; 
+     throw PlatformException(e.code).message; 
     } catch (e) {
       throw "Something went wrong. Please try again";
     }
@@ -51,9 +51,9 @@ class UserRepository extends GetxController {
     } on FirebaseException catch (e) {
       throw TFirebaseException(e.code).message; 
     } on FormatException catch (_) {
-      throw const TFormatException();
+      throw const FormatException();
     } on PlatformException catch (e) {
-     throw TPlatformException(e.code).message; 
+     throw PlatformException(e.code).message; 
     } catch (e) {
       throw "Something went wrong. Please try again";
     }
@@ -65,9 +65,9 @@ Future<void> updateSingleField(Map<String, dynamic> json) async {
     } on FirebaseException catch (e) {
       throw TFirebaseException(e.code).message; 
     } on FormatException catch (_) {
-      throw const TFormatException();
+      throw const FormatException();
     } on PlatformException catch (e) {
-     throw TPlatformException(e.code).message; 
+     throw PlatformException(e.code).message; 
     } catch (e) {
       throw "Something went wrong. Please try again";
     }
@@ -79,9 +79,9 @@ Future<void> updateSingleField(Map<String, dynamic> json) async {
     } on FirebaseException catch (e) {
       throw TFirebaseException(e.code).message; 
     } on FormatException catch (_) {
-      throw const TFormatException();
+      throw const FormatException();
     } on PlatformException catch (e) {
-     throw TPlatformException(e.code).message; 
+     throw PlatformException(e.code).message; 
     } catch (e) {
       throw "Something went wrong. Please try again";
     }
