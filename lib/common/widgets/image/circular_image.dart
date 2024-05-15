@@ -1,3 +1,5 @@
+import 'package:cached_network_image/cached_network_image.dart';
+import 'package:d9/features/shop/screens/home/widgets/shimmer.dart';
 import 'package:d9/utils/constans/colors.dart';
 import 'package:d9/utils/constans/size.dart';
 import 'package:d9/utils/helpers/helper_function.dart';
@@ -33,11 +35,22 @@ class TcircularImage extends StatelessWidget {
         color: THelperFunction.isDarkMode(context) ? Tcolors.black : Tcolors.white,
         borderRadius: BorderRadius.circular(100)
       ),
-      child: Center(
-        child: Image(
-          fit: fit,
-          image: isNetworkImage ? NetworkImage(image) : AssetImage(image) as ImageProvider,
-        color:overlayColor,
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(100),
+        child: Center(
+          child: isNetworkImage ? CachedNetworkImage(
+            fit: fit,
+            color: overlayColor,
+            imageUrl: image,
+            progressIndicatorBuilder: (context, url, downloadProgress) => const TshimmerEffect(width: 55, height: 55),
+            errorWidget: (context, url, error)=> const Icon(Icons.error),
+          )
+          
+          : Image(
+            fit: fit,
+            image:  AssetImage(image),
+          color:overlayColor,
+          ),
         ),
       ),
     );

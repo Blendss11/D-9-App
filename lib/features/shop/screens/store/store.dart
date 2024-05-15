@@ -1,4 +1,3 @@
-import 'dart:ui';
 
 import 'package:d9/common/widgets/appbar/appbar.dart';
 import 'package:d9/common/widgets/brands/brands_card.dart';
@@ -10,6 +9,7 @@ import 'package:d9/common/widgets/producs.cart/products_menu_cart.dart';
 import 'package:d9/common/widgets/products_card/brand_card.dart';
 import 'package:d9/common/widgets/textx/brand_title_text_verified_icon.dart';
 import 'package:d9/common/widgets/textx/section_heading.dart';
+import 'package:d9/features/personalization/controllers/category_controller.dart';
 import 'package:d9/features/shop/screens/home/widgets/tab_category.dart';
 import 'package:d9/utils/constans/colors.dart';
 import 'package:d9/utils/constans/enums.dart';
@@ -17,6 +17,7 @@ import 'package:d9/utils/constans/image_strings.dart';
 import 'package:d9/utils/constans/size.dart';
 import 'package:d9/utils/helpers/helper_function.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
@@ -25,8 +26,9 @@ class Store extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final categories = CategoryController.instance.featuredCategories;
     return DefaultTabController(
-        length: 4,
+        length: categories.length,
         child: Scaffold(
           extendBody: true,
           appBar: TAppaBar(
@@ -90,39 +92,14 @@ class Store extends StatelessWidget {
                       ],
                     ),
                   ),
-                  bottom: TabBar(tabs: [
-                    Tab(
-                        child: Text(
-                      'Singkong',
-                      style: Theme.of(context).textTheme.bodyMedium,
-                    )),
-                    Tab(
-                        child: Text(
-                      'Minuman',
-                      style: Theme.of(context).textTheme.bodyMedium,
-                    )),
-                    Tab(
-                        child: Text(
-                      'Snack',
-                      style: Theme.of(context).textTheme.bodyMedium,
-                    )),
-                    Tab(
-                        child: Text(
-                      'Makanan',
-                      style: Theme.of(context).textTheme.bodyMedium,
-                    )),
-                  ]),
+                  bottom: TabBar(tabs: categories.map((category) => Tab(child: Text(category.name))).toList()),
                 ),
               ];
             },
-            body: const TabBarView(
-              children: [
-                TcategoryTab(),
-                TcategoryTab(),
-                TcategoryTab(),
-                TcategoryTab(),
-                TcategoryTab(),
-              ],
+            body:  TabBarView(
+              children: 
+               categories.map((category) => TcategoryTab(category: category)).toList()
+              
             ),
           ),
         )

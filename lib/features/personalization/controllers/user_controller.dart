@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:d9/data/repo/re_autthenticate_user.dart';
 import 'package:d9/features/personalization/screens/autentication/model/signup/signup_model.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -11,12 +13,14 @@ import 'package:d9/utils/constans/size.dart';
 import 'package:d9/utils/helpers/network_manager.dart';
 import 'package:d9/data/repo/authrepo.dart';
 import 'package:d9/features/personalization/screens/autentication/screens/Login/login.dart';
+import 'package:image_picker/image_picker.dart';
 
 class UserController extends GetxController {
   static UserController get instance => Get.find();
 
   Rx<UserModel> user = UserModel.empty().obs;
   final hidePassword = false.obs;
+  final imageUpload = false.obs;
   final profileLoading = false.obs;
   final verifyEmail = TextEditingController();
   final verifyPassword = TextEditingController();
@@ -43,7 +47,12 @@ class UserController extends GetxController {
 
   Future<void> saveUserRecord(UserCredential? userCredential) async {
     try {
-      if (userCredential != null) {
+
+      await fetchUserRecord();
+
+      if (user.value.id.isEmpty) {
+
+         if (userCredential != null) {
         final nameParts =
             UserModel.nameParts(userCredential.user!.displayName ?? '');
         final username =
@@ -61,6 +70,7 @@ class UserController extends GetxController {
 
         await userRepository.saveUserRecord(user);
       }
+     } 
     } catch (e) {
       Loaders.warningSnackBar(
           title: 'Data Not Saved',
@@ -142,5 +152,31 @@ class UserController extends GetxController {
     Loaders.warningSnackBar(title: 'Oh Snap', message: e.toString());
   }
 }
+
+uploadUserProfile() async {
+  try{
+     final image = await ImagePicker().pickImage(source: ImageSource.gallery, imageQuality: 70, maxHeight: 512, maxWidth: 512);
+
+  if (image != null) {
+    imageUpload.value = true;
+
+    final imageUrl = await userRepository.uploadImage("Users/Images/Profile", image);
+
+    Map<String, dynamic> json = {'profilePicture': imageUrl};
+    await userRepository.updateSingleField(json);
+
+    user.value.profilePicture = imageUrl;
+    user.refresh();
+    Loaders.successSnackbar(title: 'Success', message: 'Something Went Wrong: $e');
+  } 
+  } catch (e) {
+    Loaders.errorSnackBar(title: 'Oh snap', message: e.toString());
+  }
+  finally {
+    imageUpload.value = false;
+  }
+ 
+}
+
 
 }

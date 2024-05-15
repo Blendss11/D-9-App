@@ -4,10 +4,12 @@ import 'package:d9/common/widgets/textx/section_heading.dart';
 import 'package:d9/features/personalization/controllers/user_controller.dart';
 import 'package:d9/features/personalization/screens/profile/change_name.dart';
 import 'package:d9/features/personalization/screens/profile/profile_menu.dart';
+import 'package:d9/features/shop/screens/home/widgets/shimmer.dart';
 import 'package:d9/utils/constans/image_strings.dart';
 import 'package:d9/utils/constans/size.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get/get_state_manager/get_state_manager.dart';
 import 'package:iconsax/iconsax.dart';
 
 class ProfileScreen extends StatelessWidget {
@@ -31,13 +33,22 @@ class ProfileScreen extends StatelessWidget {
                 width: double.infinity,
                 child: Column(
                   children: [
-                    const TcircularImage(
-                      image: Timage.VerifyIcon,
-                      width: 80,
-                      height: 80,
+                    Obx(
+                      
+                      () { 
+                        final networkImage = controller.user.value.profilePicture;
+                        final image = networkImage.isNotEmpty? networkImage : Timage.VerifyIcon;
+                      
+                        return controller.imageUpload.value ? const TshimmerEffect(width: 80, height: 80, radius: 80,) :  TcircularImage(
+                        image: Timage.VerifyIcon,
+                        width: 80,
+                        height: 80,
+                        isNetworkImage: networkImage.isNotEmpty,
+                      );
+                      }
                     ),
                     TextButton(
-                        onPressed: () {}, child: const Text('Change Profile'))
+                        onPressed: () => controller.uploadUserProfile(), child: const Text('Change Profile'))
                   ],
                 ),
               ),
