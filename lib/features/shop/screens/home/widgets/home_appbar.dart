@@ -1,6 +1,6 @@
 import 'package:d9/common/widgets/appbar/appbar.dart';
 import 'package:d9/common/widgets/producs.cart/products_menu_cart.dart';
-import 'package:d9/features/personalization/controllers/user_controller.dart';
+import 'package:d9/features/personalization/screens/autentication/controllers/signup/user_controller.dart';
 import 'package:d9/features/shop/screens/home/widgets/shimmer.dart';
 import 'package:d9/utils/constans/colors.dart';
 import 'package:d9/utils/constans/text_string.dart';

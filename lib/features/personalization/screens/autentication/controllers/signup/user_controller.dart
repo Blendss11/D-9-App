@@ -1,4 +1,4 @@
-import 'package:d9/data/repo/re_autthenticate_user.dart';
+import 'package:d9/features/personalization/screens/autentication/screens/reAuth/re_autthenticate_user.dart';
 import 'package:d9/features/personalization/screens/autentication/model/signup/signup_model.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -28,7 +28,7 @@ class UserController extends GetxController {
     super.onInit();
     fetchUserRecord();
   }
-  
+
   Future<void> fetchUserRecord() async {
     try {
       profileLoading.value = true;
@@ -68,27 +68,22 @@ class UserController extends GetxController {
     }
   }
 
-  void deleteAccountWarningPopup(){
+  void deleteAccountWarningPopup() {
     Get.defaultDialog(
-      contentPadding: const EdgeInsets.all(TSize.md),
-      title: 'Delete Account',
-      middleText: 'Yakin ingin menghapus akun?',
-      confirm: ElevatedButton(
-        onPressed: () async => deleteUserAccount(), 
-        style: ElevatedButton.styleFrom(
-          backgroundColor: Colors.red, 
-          side: const BorderSide(color: Colors.red)
-        ), 
-        child: const Padding(
-          padding: EdgeInsets.symmetric(horizontal: TSize.iconLg), 
-          child: Text('Delete')
-        )
-      ),
-      cancel: OutlinedButton(
-        onPressed: () => Navigator.of(Get.overlayContext!).pop(), 
-        child: const Text('Cancel')
-      )
-    );
+        contentPadding: const EdgeInsets.all(TSize.md),
+        title: 'Delete Account',
+        middleText: 'Yakin ingin menghapus akun?',
+        confirm: ElevatedButton(
+            onPressed: () async => deleteUserAccount(),
+            style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.red,
+                side: const BorderSide(color: Colors.red)),
+            child: const Padding(
+                padding: EdgeInsets.symmetric(horizontal: TSize.iconLg),
+                child: Text('Delete'))),
+        cancel: OutlinedButton(
+            onPressed: () => Navigator.of(Get.overlayContext!).pop(),
+            child: const Text('Cancel')));
   }
 
   void deleteUserAccount() async {
@@ -96,51 +91,52 @@ class UserController extends GetxController {
       TFullScreenLoader.openLoadingDialog('Prosessing', Timage.VerifyIcon);
 
       final auth = AuthentificationRepository.instance;
-      final provider = auth.authUser!.providerData.map((e) => e.providerId).first;
+      final provider =
+          auth.authUser!.providerData.map((e) => e.providerId).first;
 
       if (provider.isNotEmpty) {
-
         if (provider == 'google.com') {
           await auth.signInGoole();
           await auth.deleteAccount();
+          TFullScreenLoader.stopLoading();
+          Get.offAll(() => const LoginScreen());
+        } else if (provider == 'password') {
+          TFullScreenLoader.stopLoading();
+          Get.to(() => const ReAuthLogin());
         }
-      } else if (provider == 'Password') {
-        TFullScreenLoader.stopLoading();
-        Get.to(() => const ReAuthLogin());
       }
-    } catch(e) {
+    } catch (e) {
       TFullScreenLoader.stopLoading();
       Loaders.warningSnackBar(title: 'Oh Snap', message: e.toString());
     }
-  } 
-
- Future<void> reAuthEmailAndPassword() async {
-  try {
-    TFullScreenLoader.openLoadingDialog('Processing', Timage.VerifyIcon);
-
-    final isConnected = await NetworkManager.instance.isConnected();
-
-    if (!isConnected) {
-      TFullScreenLoader.stopLoading();
-      return;
-    }
-
-    if (!reAuthFromKey.currentState!.validate()) {
-      TFullScreenLoader.stopLoading();
-      return;
-    }
-
-    await AuthentificationRepository.instance.reAuthEmailAndPassword(
-        verifyEmail.text.trim(), verifyPassword.text.trim());
-
-    await AuthentificationRepository.instance.deleteAccount();
-    TFullScreenLoader.stopLoading();
-
-    Get.offAll(() => const LoginScreen());
-  } catch (e) {
-    TFullScreenLoader.stopLoading();
-    Loaders.warningSnackBar(title: 'Oh Snap', message: e.toString());
   }
-}
 
+  Future<void> reAuthEmailAndPassword() async {
+    try {
+      TFullScreenLoader.openLoadingDialog('Processing', Timage.VerifyIcon);
+
+      final isConnected = await NetworkManager.instance.isConnected();
+
+      if (!isConnected) {
+        TFullScreenLoader.stopLoading();
+        return;
+      }
+
+      if (!reAuthFromKey.currentState!.validate()) {
+        TFullScreenLoader.stopLoading();
+        return;
+      }
+
+      await AuthentificationRepository.instance.reAuthEmailAndPassword(
+          verifyEmail.text.trim(), verifyPassword.text.trim());
+
+      await AuthentificationRepository.instance.deleteAccount();
+      TFullScreenLoader.stopLoading();
+
+      Get.offAll(() => const LoginScreen());
+    } catch (e) {
+      TFullScreenLoader.stopLoading();
+      Loaders.warningSnackBar(title: 'Oh Snap', message: e.toString());
+    }
+  }
 }
