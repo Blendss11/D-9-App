@@ -1,9 +1,20 @@
+<<<<<<< HEAD:lib/features/autentication/screens/Signup/sign_up_form.dart
 import 'package:d9/features/autentication/controllers/signup/signup_controller.dart';
+=======
+import 'package:d9/features/personalization/screens/autentication/controllers/signup/signup_controller.dart';
+import 'package:d9/features/personalization/screens/autentication/screens/Signup/terms_and_conditon.dart';
+//import 'package:d9/features/personalization/screens/autentication/screens/verify%20email/verify_email.dart';
+>>>>>>> 289217778cfce47134fe8d8aa0e3cb9b71b3dc90:lib/features/personalization/screens/autentication/screens/Signup/sign_up_form.dart
 import 'package:d9/utils/constans/colors.dart';
 import 'package:d9/utils/constans/size.dart';
 import 'package:d9/utils/constans/text_string.dart';
 import 'package:d9/utils/validators/validator.dart';
 import 'package:flutter/material.dart';
+<<<<<<< HEAD:lib/features/autentication/screens/Signup/sign_up_form.dart
+=======
+import 'package:get/get.dart';
+import 'package:get/get_state_manager/get_state_manager.dart';
+>>>>>>> 289217778cfce47134fe8d8aa0e3cb9b71b3dc90:lib/features/personalization/screens/autentication/screens/Signup/sign_up_form.dart
 import 'package:iconsax/iconsax.dart';
 
 class TSignUpForm extends StatelessWidget {
@@ -13,7 +24,7 @@ class TSignUpForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final controller = SignUpController();
+    final controller = Get.put(SignUpController());
     return Form(
       key: controller.signUpFormKey,
       child: Column(
@@ -23,7 +34,8 @@ class TSignUpForm extends StatelessWidget {
               Expanded(
                 child: TextFormField(
                   controller: controller.firstName,
-                  validator:(value) => TValidator.validateEmptyText('First name', value),
+                  validator: (value) =>
+                      TValidator.validateEmptyText('firstName', value),
                   expands: false,
                   decoration: const InputDecoration(
                     labelText: TTexts.FirstName,
@@ -36,7 +48,8 @@ class TSignUpForm extends StatelessWidget {
               Expanded(
                 child: TextFormField(
                   controller: controller.lastName,
-                  validator:(value) => TValidator.validateEmptyText('Last name', value),
+                  validator: (value) =>
+                      TValidator.validateEmptyText('Last name', value),
                   expands: false,
                   decoration: const InputDecoration(
                     labelText: 'Last Name',
@@ -50,7 +63,8 @@ class TSignUpForm extends StatelessWidget {
           const SizedBox(height: TSize.spaceBTWInputField),
           TextFormField(
             controller: controller.userName,
-            validator:(value) => TValidator.validateEmptyText('Username', value),
+            validator: (value) =>
+                TValidator.validateEmptyText('Username', value),
             expands: false,
             decoration: const InputDecoration(
               labelText: TTexts.Username,
@@ -60,7 +74,7 @@ class TSignUpForm extends StatelessWidget {
           ),
           const SizedBox(height: TSize.spaceBTWInputField),
           TextFormField(
-            validator:(value) => TValidator.validateEmail(value),
+            validator: (value) => TValidator.validateEmail(value),
             controller: controller.email,
             expands: false,
             decoration: const InputDecoration(
@@ -72,7 +86,7 @@ class TSignUpForm extends StatelessWidget {
           const SizedBox(height: TSize.spaceBTWInputField),
           TextFormField(
             controller: controller.phoneNumber,
-            validator:(value) => TValidator.validatePhoneNumber(value),
+            validator: (value) => TValidator.validatePhoneNumber(value),
             expands: false,
             decoration: const InputDecoration(
               labelText: 'Phone Number',
@@ -81,60 +95,26 @@ class TSignUpForm extends StatelessWidget {
             ),
           ),
           const SizedBox(height: TSize.spaceBTWInputField),
-          TextFormField(
-            controller: controller.password,
-            validator:(value) => TValidator.validatePassword(value),
-            decoration: const InputDecoration(
-              prefixIcon: Icon(Iconsax.password_check),
-              labelText: TTexts.Password,
-              suffixIcon: Icon(Iconsax.eye_slash),
-              labelStyle: TextStyle(color: Colors.black),
+          Obx(
+            () => TextFormField(
+              obscureText: controller.hidePassword.value,
+              controller: controller.password,
+              validator: (value) => TValidator.validatePassword(value),
+              decoration: InputDecoration(
+                prefixIcon: const Icon(Iconsax.password_check),
+                labelText: TTexts.Password,
+                suffixIcon: IconButton(
+                    onPressed: () => controller.hidePassword.value =
+                        !controller.hidePassword.value,
+                    icon: Icon(controller.hidePassword.value
+                        ? Iconsax.eye_slash
+                        : Iconsax.eye)),
+                labelStyle: const TextStyle(color: Colors.black),
+              ),
             ),
           ),
           const SizedBox(height: TSize.spaceBTWSection),
-          Row(
-            children: [
-              SizedBox(
-                width: 24,
-                height: 24,
-                child: Checkbox(
-                  value: true,
-                  onChanged: (value) {},
-                ),
-              ),
-              const SizedBox(width: TSize.spaceBTWItems),
-              Text.rich(
-                TextSpan(
-                  children: [
-                    TextSpan(
-                      text: '${TTexts.IsAgreeTo}',
-                      style: Theme.of(context).textTheme.bodySmall,
-                    ),
-                    TextSpan(
-                      text: ' ${TTexts.Privicypolicy}',
-                      style: Theme.of(context).textTheme.bodyMedium!.apply(
-                            color: Tcolors.primaryColor,
-                            decoration: TextDecoration.underline,
-                            decorationColor: Tcolors.primaryColor,
-                          ),
-                    ),
-                    TextSpan(
-                      text: ' and ',
-                      style: Theme.of(context).textTheme.bodySmall,
-                    ),
-                    TextSpan(
-                      text: '${TTexts.Termsus}',
-                      style: Theme.of(context).textTheme.bodyMedium!.apply(
-                            color: Tcolors.primaryColor,
-                            decoration: TextDecoration.underline,
-                            decorationColor: Tcolors.primaryColor,
-                          ),
-                    ),
-                  ],
-                ),
-              ),
-            ],
-          ),
+         const TermsAndCondition(),
           const SizedBox(
             height: TSize.spaceBTWSection,
           ),

@@ -20,7 +20,7 @@ class TFullScreenLoader {
               child: Column(
                 children: [
                   const SizedBox(
-                    height: 250,
+                    height: 130,
                   ),
                   TAnimationLoader(text: text, animation: animation)
                 ],

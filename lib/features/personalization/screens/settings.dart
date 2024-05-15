@@ -3,6 +3,7 @@ import 'package:d9/common/widgets/custom_shapes/containers/primary_header.dart';
 import 'package:d9/common/widgets/list_tiles/settings_menu_tile.dart';
 import 'package:d9/common/widgets/list_tiles/user_profile_tile.dart';
 import 'package:d9/common/widgets/textx/section_heading.dart';
+import 'package:d9/data/repo/authrepo.dart';
 import 'package:d9/features/personalization/screens/address/address.dart';
 import 'package:d9/features/personalization/screens/profile/profile.dart';
 import 'package:d9/features/shop/screens/order/order.dart';
@@ -85,7 +86,7 @@ class SettingsScreen extends StatelessWidget {
                       SizedBox(height: TSize.spaceBTWSection),
                       SizedBox(
                         width: double.infinity,
-                        child: OutlinedButton(onPressed: (){}, child: Text('Logout')),
+                        child: OutlinedButton(onPressed: () => AuthentificationRepository.instance.logout(), child: Text('Logout')),
                       ),
                       SizedBox(height: TSize.spaceBTWSection * 2.5),
                    

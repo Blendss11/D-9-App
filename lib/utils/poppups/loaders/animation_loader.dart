@@ -23,8 +23,8 @@ class TAnimationLoader extends StatelessWidget {
     return Center(
       child: Column(
         children: [
-          Lottie.asset(animation,
-              width: MediaQuery.of(context).size.width * 0.8),
+          // Lottie.asset(animation,
+          //     width: MediaQuery.of(context).size.width * 0.8),
           const SizedBox(
             height: TSize.defaultSpace,
           ),

@@ -1,4 +1,4 @@
-import 'package:d9/features/autentication/controllers/onboarding/onboarding_controller.dart';
+import 'package:d9/features/personalization/screens/autentication/controllers/onboarding/onboarding_controller.dart';
 import 'package:d9/utils/constans/colors.dart';
 import 'package:d9/utils/constans/size.dart';
 import 'package:d9/utils/device/device_utility.dart';
