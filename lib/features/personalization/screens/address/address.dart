@@ -1,5 +1,4 @@
 import 'package:d9/common/widgets/appbar/appbar.dart';
-import 'package:d9/common/widgets/custom_shapes/containers/rounded_container.dart';
 import 'package:d9/features/personalization/screens/address/add_address.dart';
 import 'package:d9/features/personalization/screens/address/widget/single_address.dart';
 import 'package:d9/utils/constans/colors.dart';
@@ -7,7 +6,6 @@ import 'package:d9/utils/constans/size.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:http/http.dart';
 import 'package:iconsax/iconsax.dart';
 
 class UserAddressScreen extends StatelessWidget {

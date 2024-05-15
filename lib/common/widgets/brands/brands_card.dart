@@ -1,7 +1,6 @@
 import 'package:d9/common/widgets/custom_shapes/containers/rounded_container.dart';
 import 'package:d9/common/widgets/products_card/brand_card.dart';
 import 'package:d9/utils/constans/colors.dart';
-import 'package:d9/utils/constans/image_strings.dart';
 import 'package:d9/utils/constans/size.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';

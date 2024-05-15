@@ -1,5 +1,4 @@
 import 'package:d9/utils/constans/colors.dart';
-import 'package:d9/utils/constans/size.dart';
 import 'package:d9/utils/helpers/helper_function.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';

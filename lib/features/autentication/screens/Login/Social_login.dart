@@ -1,7 +1,6 @@
-import 'package:d9/features/personalization/screens/autentication/controllers/login/login_controller.dart';
-import 'package:d9/utils/constans/colors.dart';
 import 'package:d9/utils/constans/image_strings.dart';
 import 'package:d9/utils/constans/size.dart';
+import 'package:d9/features/personalization/screens/autentication/controllers/login/login_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
